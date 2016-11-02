@@ -39,7 +39,7 @@ $(function() {
       val = val.slice(0, val.indexOf('.') + 1);
       var i = 0;
       while (valTest[i] < 1) {
-        i++
+        i++;
       }
       valTest = valTest.join('').slice(0, i + 2);
       if (valTest[valTest.length-1] === '0') {
@@ -97,8 +97,12 @@ function outputScreen() {
 	//negate handler
 	$('#negate').click(function() {
 		reset();
+		if (a.indexOf('-') === -1) {
 		a.unshift('-');
 		doOutput();
+	} else {
+		doOutput();
+	}
 	});
 }
 //end of screen ouput commands
@@ -169,7 +173,44 @@ function doMath() {
 	return round(x[0]);
 }
 
+//button click effect
+function buttonEffect() {
+	var num = $('div.content.number');
+	var dec = $('div.content.decimal');
+	var fun = $('div.content.function');
+	var man = $('div.content.manipulate');
 
+	num.mousedown(function() {
+		$(this).removeClass('number').addClass('press');
+	});
+	num.mouseup(function() {
+		$(this).removeClass('press').addClass('number');
+	});
+
+	dec.mousedown(function() {
+		$(this).removeClass('decimal').addClass('press');
+	});
+	dec.mouseup(function() {
+		$(this).removeClass('press').addClass('decimal');
+	});
+
+	fun.mousedown(function() {
+		$(this).removeClass('function').addClass('press');
+	});
+	fun.mouseup(function() {
+		$(this).removeClass('press').addClass('function');
+	});
+
+	man.mousedown(function() {
+		$(this).removeClass('manipulate').addClass('press');
+	});
+	man.mouseup(function() {
+		$(this).removeClass('press').addClass('manipulate');
+	});
+}
+
+
+buttonEffect();
 outputScreen();
 buildMath();
 //equals handler	
