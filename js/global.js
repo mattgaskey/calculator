@@ -77,7 +77,7 @@ function outputScreen() {
 			a.length = 0;
 			doOutput();
 		//build number strings
-		} else {
+		} else if (a.length < 10) {
 			a.push($(this).children().text());
 			doOutput();
 		}
@@ -180,31 +180,31 @@ function buttonEffect() {
 	var fun = $('div.content.function');
 	var man = $('div.content.manipulate');
 
-	num.on('mousedown touchstart', function(e) {
+	num.on('mousedown touchstart', function() {
 		$(this).removeClass('number').addClass('press');
 	});
-	num.on('mouseup touchend', function(e) {
+	num.on('mouseup touchend', function() {
 		$(this).removeClass('press').addClass('number');
 	});
 
-	dec.on('mousedown touchstart', function(e) {
+	dec.on('mousedown touchstart', function() {
 		$(this).removeClass('decimal').addClass('press');
 	});
-	dec.on('mouseup touchend', function(e) {
+	dec.on('mouseup touchend', function() {
 		$(this).removeClass('press').addClass('decimal');
 	});
 
-	fun.on('mousedown touchstart', function(e) {
+	fun.on('mousedown touchstart', function() {
 		$(this).removeClass('function').addClass('press');
 	});
-	fun.on('mouseup touchend', function(e) {
+	fun.on('mouseup touchend', function() {
 		$(this).removeClass('press').addClass('function');
 	});
 
-	man.on('mousedown touchstart', function(e) {
+	man.on('mousedown touchstart', function() {
 		$(this).removeClass('manipulate').addClass('press');
 	});
-	man.on('mouseup touchend', function(e) {
+	man.on('mouseup touchend', function() {
 		$(this).removeClass('press').addClass('manipulate');
 	});
 }
