@@ -180,31 +180,31 @@ function buttonEffect() {
 	var fun = $('div.content.function');
 	var man = $('div.content.manipulate');
 
-	num.mousedown(function() {
+	num.on('mousedown touchstart', function(e) {
 		$(this).removeClass('number').addClass('press');
 	});
-	num.mouseup(function() {
+	num.on('mouseup touchend', function(e) {
 		$(this).removeClass('press').addClass('number');
 	});
 
-	dec.mousedown(function() {
+	dec.on('mousedown touchstart', function(e) {
 		$(this).removeClass('decimal').addClass('press');
 	});
-	dec.mouseup(function() {
+	dec.on('mouseup touchend', function(e) {
 		$(this).removeClass('press').addClass('decimal');
 	});
 
-	fun.mousedown(function() {
+	fun.on('mousedown touchstart', function(e) {
 		$(this).removeClass('function').addClass('press');
 	});
-	fun.mouseup(function() {
+	fun.on('mouseup touchend', function(e) {
 		$(this).removeClass('press').addClass('function');
 	});
 
-	man.mousedown(function() {
+	man.on('mousedown touchstart', function(e) {
 		$(this).removeClass('manipulate').addClass('press');
 	});
-	man.mouseup(function() {
+	man.on('mouseup touchend', function(e) {
 		$(this).removeClass('press').addClass('manipulate');
 	});
 }
